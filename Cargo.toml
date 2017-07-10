@@ -4,4 +4,6 @@ version = "0.1.0"
 authors = ["Vincent Prouillet <vincent@wearewizards.io>"]
 
 [dependencies]
-pest = "0.4"
+pest = {path = "./pest/pest"}
+pest_derive = {path="./pest/pest_derive"}
+# pest = { git = "https://github.com/pest-parser/pest", branch = "procedural" }
