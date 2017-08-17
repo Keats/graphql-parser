@@ -9,6 +9,9 @@ extern crate pest_derive;
 use std::result::Result;
 use std::collections::HashMap;
 
+use pest::Parser;
+
+
 #[cfg(test)]
 mod tests;
 
@@ -95,3 +98,6 @@ pub enum Node {
 #[grammar = "graphql.pest"]
 pub struct GraphQLParser;
 
+pub fn parse(input: &str) {
+    let pairs = GraphQLParser::parse_str(Rule::document, input).unwrap_or_else(|e| panic!("{}", e));
+}
