@@ -49,7 +49,7 @@ selection_set = { "{" ~ selection+ ~ "}" }
 // Field
 alias = { name ~ ":"}
 args  = { "(" ~ arg ~ ("," ~ arg)* ~ ","? ~ ")"}
-field = { alias? ~ name ~ args? ~ directive? ~selection_set? }
+field = { alias? ~ name ~ args? ~ directive? ~ selection_set? }
 
 // Fragments
 fragment_name = { !"on" ~ name }
@@ -61,4 +61,4 @@ query = { "query" ~ name? ~ variable_defs? ~ selection_set }
 mutation = { "mutation" ~ name? ~ variable_defs? ~ selection_set }
 operation = { query | mutation | selection_set }
 
-document = @{ soi ~ (operation | fragment_def)+ ~ eoi }
+document = { soi ~ (operation | fragment_def)+ ~ eoi }
